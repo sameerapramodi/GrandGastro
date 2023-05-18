@@ -1,7 +1,4 @@
 <?php
-/**
- * Template Engine Library File
- */
 class Template
 {
 	public $header ="";
@@ -22,4 +19,19 @@ class Template
 		require "App/views/". $this->footer.".view.php";
 		
 	}
+
+
+	public function engine_viewq($name, $data = [])
+	{
+		if (!empty($data))
+			extract($data);
+		$filename = "App/libraries/Template_Engine/" . $name . ".eng.php";
+		if (file_exists($filename)) {
+			require $filename;
+		} else {
+			$filename = "App/libraries/Template_Engine/404.eng.php";
+			require $filename;
+		}
+	}
+
 }

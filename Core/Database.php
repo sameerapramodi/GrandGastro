@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Database Class
  */
@@ -7,11 +6,10 @@ trait Database
 {
 	private function connect()
 	{
-		$string = CONFIG['db']['dbdriver'] . ":hostname=" . CONFIG['db']['hostname'] . ";dbname=" . CONFIG['db']['database'];
+		$string = CONFIG['db']['dbdriver'].":hostname=" . CONFIG['db']['hostname'] . ";dbname=" . CONFIG['db']['database'];
 		$con = new PDO($string, CONFIG['db']['username'],  CONFIG['db']['password']);
 		return $con;
 	}
-
 	public function query($query, $data = [])
 	{
 		$con = $this->connect();
@@ -25,16 +23,7 @@ trait Database
 		}
 		return false;
 	}
-
-	public function getLastId($query)
-	{
-		$con = $this->connect();
-		$stm = $con->prepare($query);
-		$stm->execute();
-		return $con->lastInsertId();
-	}
-
-	public function getRow($query, $data = [])
+	public function get_row($query, $data = [])
 	{
 		$con = $this->connect();
 		$stm = $con->prepare($query);

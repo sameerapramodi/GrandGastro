@@ -1,11 +1,11 @@
 <?php
 
 /**
- * PureFrame PHP Framework
- * @package pureframe
- * @author Udara Dananjaya
- * @link https://github.com/Udara-Dananjaya/PureFrame-PHP-Framework
- * @since Version 1.0.0
+ * SimpleX PHP Framework
+ * @package SimpleXPHP
+ * @author	Udara Dananjaya
+ * @link    https://github.com/Udara-Dananjaya/Project-Template
+ * @since	Version 1.0.0
  */
 
 //Page Rendering
@@ -26,9 +26,8 @@ $app->loadController();
 
 //System And Variable Dumps
 if (CONFIG['variable_dump']) {
-	variable_dump(get_defined_vars());
+    variable_dump(get_defined_vars());
 }
 if (CONFIG['system_dump']) {
-	system_dump($Render_Start, microtime(true));
+    system_dump($Render_Start, microtime(true));
 }
-//More https://www.php.net/manual/en/ini.list.php

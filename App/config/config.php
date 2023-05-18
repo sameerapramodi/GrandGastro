@@ -5,7 +5,7 @@ $config['variable_dump'] =false;
 // debug configuration
 $config['debug'] =true;// enable debug mode (true/false)
 
-define('BASE', 'http://localhost/PureFrame-Template/'); // base url for the site
+define('BASE', 'http://localhost/GrandGastro/'); // base url for the site
 // define('BASE', 'http://localhost:5000/'); // base url for the site
 
 // site configuration
