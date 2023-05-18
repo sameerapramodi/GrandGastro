@@ -119,14 +119,28 @@ class Sample
         if (!empty($_SESSION['USER'])) { //Check Session
             redirect('Sample/index'); // If Session User Not empty Redirect 
         }
+
         if ($_SERVER['REQUEST_METHOD'] == "POST") { // If POST Data Available 
             $user = new Demo_model; //Create Model Object
-            $user->set_table('users'); //Set Table
-            $arr['email'] = $_POST['username']; // 
+            $user->set_table('admin'); //Set Table
+            $arr['email'] = $_POST['user_email']; // 
             $row = $user->first($arr);
             if ($row) {
                 if ($row->password === $_POST['password']) {
                     $_SESSION['USER'] = $row;
+
+                    // switch ($_SESSION['USER']->user_type) {
+                    //     case 'Admin':
+                    //         redirect('Admin/index');
+                    //         break;
+                    //      case 'User':
+                    //         redirect('User/index');
+                    //         break;
+                    //     default:
+                    //         redirect('User/index');
+                    //         break;
+                    // }
+
                     redirect('Sample/index');
                 }
             }
